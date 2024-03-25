@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scrapper</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><strong>Search</strong></li>
+      </ul>
+      <ul>
+        <li>
+          <a href="/" data-tooltip="Need more?" data-placement="bottom">Home</a>
+        </li>
+        <li>
+          <a
+            href="https://nomadcoders.co/"
+            target="_blank"
+            data-tooltip="Booya!"
+            data-placement="bottom"
+            >Nomad Coders</a
+          >
+        </li>
+        <li>
+          <details role="list" dir="rtl">
+            <summary aria-haspopup="listbox" role="link">Job Websites</summary>
+            <ul role="listbox">
+              <li>
+                <a href="https://weworkremotely.com/" target="_blank">WWR</a>
+              </li>
+              <li>
+                <a href="https://remoteok.com/" target="_blank">remoteok</a>
+              </li>
+              <li>
+                <a href="https://www.saramin.co.kr/" target="_blank">Saramin</a>
+              </li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </nav>
+    <main class="container">
+      <hgroup>
+        <h1>Search Results for <mark>"{{keyword}}":</mark></h1>
+        <a
+          target="_blank"
+          role="button"
+          class="outline"
+          href="/export?keyword={{keyword}}"
+          data-tooltip="save to {{keyword}}.csv"
+          data-placement="right"
+          >Export to file</a
+        >
+      </hgroup>
+      <figure>
+        <table role="grid">
+          <thead>
+            <tr>
+              <th><kbd>Title</kbd></th>
+              <th><kbd>Company</kbd></th>
+              <th><kbd>Location</kbd></th>
+              <th><kbd>Link</kbd></th>
+              <th><kbd>Note</kbd></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for job in jobs %}
+            <tr>
+              <td><strong>{{job.title}}</strong></td>
+              <td>{{job.company}}</td>
+              <td>{{job.location}}</td>
+              <td>
+                <a
+                  href="{{job.link}}"
+                  role="button"
+                  class="contrast outline"
+                  target="_blank"
+                  data-tooltip="Apply Now!"
+                  data-placement="right"
+                  >Apply&rarr;</a
+                >
+              </td>
+              <td>{{job.note}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </figure>
+    </main>
+  </body>
+</html>

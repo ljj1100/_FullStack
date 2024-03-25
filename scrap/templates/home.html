@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scrapper</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><strong>Home</strong></li>
+      </ul>
+      <ul>
+        <li>
+          <a
+            href="https://nomadcoders.co/"
+            target="_blank"
+            data-tooltip="Booya!"
+            data-placement="bottom"
+            >Nomad Coders</a
+          >
+        </li>
+        <li>
+          <details role="list" dir="rtl">
+            <summary aria-haspopup="listbox" role="link">Job Websites</summary>
+            <ul role="listbox">
+              <li>
+                <a href="https://weworkremotely.com/" target="_blank">WWR</a>
+              </li>
+              <li>
+                <a href="https://remoteok.com/" target="_blank">remoteok</a>
+              </li>
+              <li>
+                <a href="https://www.saramin.co.kr/" target="_blank">Saramin</a>
+              </li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </nav>
+    <main class="container">
+      <h1>
+        <strong><u>Job Scrapper</u></strong>
+      </h1>
+      <h4><kbd>What job do you want?</kbd></h4>
+      <form action="/search">
+        <input
+          type="search"
+          id="search"
+          required
+          type="text"
+          name="keyword"
+          placeholder="Write keyword please"
+        />
+        <label for="terms">
+          <input required type="checkbox" id="terms" name="terms" />
+          <strong>I agree to the Terms and Conditions:</strong>
+          <small>
+            This Scrapper must be used for educational purposes only, and any
+            violations there of will be held responsible for such actions.
+          </small>
+        </label>
+        <button>Search</button>
+      </form>
+      <details>
+        <summary><cite>Boring for wating?</cite></summary>
+        <p>
+          <a href="#" aria-busy="true">Scrapping links, please wait…</a
+          ><small><sub>@bellukki</sub></small>
+        </p>
+      </details>
+    </main>
+  </body>
+</html>
