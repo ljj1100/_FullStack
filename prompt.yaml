@@ -1,0 +1,70 @@
+# _type: "prompt"
+# template : "What is movie {movie_name}\nWho is the director of the movie {movie_name}?"
+# description: "Retrieve information about a movie"
+
+# movie_info:
+# #   description: "Retrieve information about a movie"
+# #   prompts:
+# #     - name: director
+# #       text: "Who is the director of the movie {{ movie_name }}?"
+# #     - name: cast
+# #       text: "Who are the main cast members of the movie {{ movie_name }}?"
+# #     - name: budget
+# #       text: "What was the budget for the movie {{ movie_name }}?"
+# #     - name: box_office
+# #       text: "What was the box office revenue for the movie {{ movie_name }}?"
+# #     - name: genre
+# #       text: "What is the genre of the movie {{ movie_name }}?"
+# #     - name: synopsis
+# #       text: "Provide a brief synopsis of the movie {{ movie_name }}."
+
+# input_variables : ["movie_name"]
+
+# _type: few_shot
+# input_variables:
+#     ["movie_name"]
+# prefix:
+#     Write antonyms for the following words.
+# example_prompt:
+#     _type: prompt
+#     input_variables:
+#         ["input", "output"]
+#     template:
+#         "Input: {input}\nOutput: {output}"
+# examples:
+#   - input: happy
+#     output: sad
+#   - input: tall
+#     output: short
+# suffix:
+#     "Input: {movie_name}\nOutput:"
+
+_type: few_shot
+input_variables:
+  ["movie_name"]
+prefix: "Retrieve detailed information about a movie."
+example_prompt:
+  _type: prompt
+  input_variables: ["input", "output"]
+  template: |
+    "For the movie {input} provide the following information."
+    "{output}"
+examples:
+  - input: "The Matrix"
+    output: |
+      "- Director: The Wachowskis
+       - Main Cast: Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss
+       - Budget: $63 million
+       - Box Office Revenue: $463.5 million
+       - Genre: Science Fiction
+       - Brief Synopsis: A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+  - input: "Finding Nemo"
+    output: |
+      "- Director: Andrew Stanton
+       - Main Cast: Albert Brooks, Ellen DeGeneres, Alexander Gould
+       - Budget: $94 million
+       - Box Office Revenue: $940.3 million
+       - Genre: Animation, Adventure, Comedy
+       - Brief Synopsis: After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home."
+
+suffix: "Input: What do you know about {movie_name}?"
