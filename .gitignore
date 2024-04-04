@@ -2,5 +2,7 @@ env/
 .env
 extractors/
 scrap/
-.scrap
+.scrap/
 .cache/
+.streamlit/
+envAPI/
