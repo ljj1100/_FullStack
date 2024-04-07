@@ -7,11 +7,7 @@ st.set_page_config(
 )
 
 api_key = st.sidebar.text_input("Please put in OpenAI API Key", type="password")
-
-st.sidebar.markdown("## Github Repository")
-st.sidebar.markdown("[Github Repo Link](https://github.com/ljj1199/_FullStack/compare/main...ljj1100:_FullStack:main)")
-
-
+directory = "./envAPI"
 def save_api(directory, key):
     directory = directory
     if not os.path.exists(directory):
@@ -23,9 +19,13 @@ def save_api(directory, key):
         return st.success("Saved file : {}".format(directory))
     else:
         return 0
-
-directory = "./envAPI"
 save_api(directory, api_key)
+
+st.sidebar.markdown("## Github Repository")
+st.sidebar.markdown("[Github Repo Link](https://github.com/ljj1199/_FullStack/compare/main...ljj1100:_FullStack:main)")
+
+
+
 
 st.markdown(
     """
@@ -35,9 +35,9 @@ Welcome to my FullstackGPT Portfolio!
             
 Here are the apps I made:
             
-- [ ] [DocumentGPT](/DocumentGPT)
-- [ ] [PrivateGPT](/PrivateGPT)
-- [ ] [QuizGPT](/QuizGPT)
+- [X] [DocumentGPT](/DocumentGPT)
+- [X] [PrivateGPT](/PrivateGPT)
+- [X] [QuizGPT](/QuizGPT)
 - [ ] [SiteGPT](/SiteGPT)
 - [ ] [MeetingGPT](/MeetingGPT)
 - [ ] [InvestorGPT](/InvestorGPT)
